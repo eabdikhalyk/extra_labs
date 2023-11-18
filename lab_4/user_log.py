@@ -72,7 +72,6 @@ def delete_user():
 
 def authorization():
     global auth
-    global option
     if user_list:
         for _ in range(0,3):
             email = input('Enter email: ')
@@ -90,7 +89,6 @@ def authorization():
 
 def logout():
     global auth
-    global option
     print("You are successfully logged out ")
     option.replace("Logout", "Authorization")
     auth = "Authorization"
