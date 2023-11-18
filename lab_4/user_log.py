@@ -2,13 +2,14 @@ user_list = []
 is_go_on = True
 is_unique = True
 auth = 'Authorization'
-option = f'''Choose one option:
+option = '''Choose one option:
 1. Create User
 2. Show list of Users
 3. Delete user from list
 4. Authorization
 5. Exit
 '''
+
 def password_validation():
     while True:
         password = input("Password: ")
@@ -16,6 +17,7 @@ def password_validation():
             return password
         else:
             print("Password should equal or longer than 8 characters")
+
 def email_validation():
     global is_unique
     while True:
@@ -27,7 +29,6 @@ def email_validation():
                 is_unique = False
         if is_unique:
             return email
-
 
 def create_user():
     name = input("Name: ")
@@ -68,13 +69,15 @@ def delete_user():
             print(f"User with {email} does not exist.")
     else:
         print('list of Users is empty.')
+
 def authorization():
+    global auth
+    global option
     if user_list:
         for _ in range(0,3):
             email = input('Enter email: ')
             password = input('Enter password: ')
             for item in user_list:
-                global auth
                 if item['Email'] == email and item['Password'] == password:
                     print(f'You are successfully logged in to the system.')
                     print(f"Hello, {item['Name']}!")
@@ -87,29 +90,33 @@ def authorization():
 
 def logout():
     global auth
+    global option
     print("You are successfully logged out ")
     option.replace("Logout", "Authorization")
     auth = "Authorization"
+
 def exit():
     global is_go_on
     print("Good bye!")
     is_go_on = False
 
-
 while is_go_on:
     print(option)
     choice = input("")
-    if choice == '1':
-        create_user()
-    elif choice == '2':
-        show_user_list()
-    elif choice == '3':
-        delete_user()
-    elif choice == '4':
-        if auth == 'Authorization':
-            authorization()
-        else:
-            logout()
-    elif choice == '5':
-        exit()
+    match choice:
+        case '1':
+            create_user()
+        case '2':
+            show_user_list()
+        case '3':
+            delete_user()
+        case '4':
+            if auth == 'Authorization':
+                authorization()
+            else:
+                logout()
+        case '5':
+            exit()
+        case _:
+            print("Choice incorrect option")
     print('\n')
