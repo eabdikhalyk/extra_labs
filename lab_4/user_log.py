@@ -25,7 +25,7 @@ def email_validation():
         is_unique = True
         for i in  range(0, len(user_list)):
             if user_list[i]['Email'] == email:
-                print(f"{email} exists, it should be unique")
+                print(f"{email} exists, it should be unique.")
                 is_unique = False
         if is_unique:
             return email
