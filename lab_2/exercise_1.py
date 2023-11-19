@@ -1,4 +1,3 @@
-# 1. Exercise
 import math
 
 a = float(input("Введите строну a: "))
