@@ -17,7 +17,7 @@ if count % 2 == 0 :
     result = result - long_break
 else:
     result = result - short_break
-    
+
 hour = int(result / 60)
 minute = result % 60
 print(f"{hour+start_time}:{minute}")
