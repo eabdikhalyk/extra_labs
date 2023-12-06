@@ -83,7 +83,7 @@ def authorization():
                     option.replace("Authorization","Logout")
                     auth = 'Logout'
                     return
-            print("Wrong email or password")
+            print("Wrong email or password.")
     else:
         print('list of Users is empty.')
 
@@ -116,5 +116,5 @@ while is_go_on:
         case '5':
             exit()
         case _:
-            print("Choice incorrect option")
+            print("Choice incorrect option.")
     print('\n')
