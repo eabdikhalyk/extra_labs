@@ -1,10 +1,6 @@
 import os
 from lab_6.decorator import method_decorator
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 class CommandPrompt():
     def __init__(self):
         self.path = os.getcwd()
